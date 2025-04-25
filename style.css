@@ -31,7 +31,7 @@ button:hover {
     background-color: #45a049;
 }
 
-/book-grid {
+.book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
