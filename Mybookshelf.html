@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Листай</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Верхняя панель -->
+    <header class="header">
+        <!-- Логотип слева -->
+    <a href="/">   
+        <div class="logo-corner">
+            <img src="logo.png.png">
+        </div>
+    </a>
+
+    <div class="search-container">
+        <form class="search-form" action="/search">
+            <input type="text" class="search-input" placeholder="Найти книгу...">
+            <button type="submit" class="search-button">Поиск</button>
+        </form>
+    </div>
+
+        <!-- Профиль справа -->
+        <div class="profile-corner">
+            <button class="profile-btn" id="profileBtn">
+                <img src="avatar-icon.png.png" alt="Профиль">
+            </button>
+
+            <!-- Выпадающее меню -->
+            <div class="profile-dropdown" id="profileDropdown">
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link" data-content="home"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#" class="nav-link" data-content="profile"><i class="fas fa-user"></i> Профиль</a></li>
+                    <li><a href="#" class="nav-link" data-content="settings"><i class="fas fa-cog"></i> Настройки</a></li>
+                    <li><a href="#" class="nav-link" data-content="help"><i class="fas fa-question-circle"></i> Помощь</a></li>
+                    <li><a href="#" class="nav-link" data-content="logout"><i class="fas fa-sign-out-alt"></i> Выйти</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <section id="home" class="content-section"> 
+            <!-- Главная -->
+            <div class="book-container">
+                
+                <div class="book-box">
+                    <img src="" alt="Оно" class="book-cover">
+                    <h3 class="book-title">Оно</h3>
+                    <p class="book-author">Стивен Кинг</p>
+                    <p class="book-price">Бесплатно</p>
+                </div>
+                <div class="book-box">
+                    <img src="" alt="Девушка в поезде" class="book-cover">
+                    <h3 class="book-title">Девушка в поезде</h3>
+                    <p class="book-author">Пола Хокинс</p>
+                    <p class="book-price">Бесплатно</p>
+                </div>
+                <div class="book-box">
+                    <img src="" alt="Три товарища" class="book-cover">
+                    <h3 class="book-title">Три товарища</h3>
+                    <p class="book-author">Эрих Мария Ремарк</p>
+                    <p class="book-price">Бесплатно</p>
+                </div>
+        
+                <!-- Детективы -->
+                <div class="book-box">
+                    <img src="" alt="Убийство в Восточном экспрессе" class="book-cover">
+                    <h3 class="book-title">Убийство в Восточном экспрессе</h3>
+                    <p class="book-author">Агата Кристи</p>
+                    <p class="book-price">Бесплатно</p>
+                </div>
+                <div class="book-box">
+                    <img src="" alt="Шерлок Холмс" class="book-cover">
+                    <h3 class="book-title">Шерлок Холмс</h3>
+                    <p class="book-author">Артур Конан Дойл</p>
+                    <p class="book-price">Бесплатно</p>
+                </div>
+        
+                <!-- Фэнтези -->
+                <div class="book-box">
+                    <img src="" alt="Гарри Поттер" class="book-cover">
+                    <h3 class="book-title">Гарри Поттер</h3>
+                    <p class="book-author">Дж.К. Роулинг</p>
+                    <p class="book-price">Бесплатно</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile" class="content-section" style="display: none;"> <!-- Профиль -->
+            <div class="content-box">Контент для Профиля</div>
+        </section>
+
+        <section id="settings" class="content-section" style="display: none;"> <!-- Настройки -->
+            <div class="content-box">Контент для Настроек</div>
+        </section>
+
+        <section id="help" class="content-section" style="display: none;"> <!-- Помощь -->
+            <div class="content-box">Контент для Помощи</div>
+        </section>
+
+        <section id="logout" class="content-section" style="display: none;"> <!-- Выйти -->
+            <div class="content-box">Вы вышли из системы</div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
