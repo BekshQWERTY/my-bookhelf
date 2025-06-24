@@ -1,270 +1,45 @@
-/* Общие стили */
+/* Custom styles for the Inter font and general body styling */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9fcf9;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f8f8; /* Light gray background */
 }
 
-/* Верхняя панель */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #86af81;
-    padding: 30px 30px;
-    color: white;
-    position: relative;
-    z-index: 1000;
-}
-
-/* Логотип */
-.logo-corner {
+/* Utility class for screen readers */
+.sr-only {
     position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.logo-icon {
-    font-size: 24px;
-    margin-right: 8px;
-    color: #61dafb;
-}
-
-/* Аватар и меню */
-.profile-corner {
-    width: 50px;                  /* ширина */
-    height: 50px;                 /* высота */
-    border-radius: 50%;           /* делает изображение круглым */
-    object-fit: cover;            /* обрезает лишнее и вписывает */
-    border: 2px solid #86af81;    /* рамка */
-    box-shadow: 0 0 8px rgba(0,0,0,0.1); /* мягкая тень */
-    background-color: white;      /* на случай прозрачности */
-    padding: 2px;                 /* небольшой внутренний отступ */
-    transition: transform 0.3s ease; /* анимация при наведении */
-}
-
-.profile-corner:hover {
-    transform: scale(1.1);
-}
-
-.profile-btn {
-    display: flex;          /* Делаем кнопку flex-контейнером */
-    justify-content: center; /* Выравниваем содержимое по центру горизонтально */
-    align-items: center;    /* Выравниваем содержимое по центру вертикально */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 0;            /* Убираем внутренние отступы */
-    overflow: hidden;       /* Обрезаем все, что выходит за границы */
-    border: 2px solid #86af81;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    background-color: white;
-    cursor: pointer;
-}
-
-.profile-dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 55px;
-    background-color: #fff;
-    border: 2px solid #86af81;
-    border-radius: 20px; /* делаем меню округлым */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    width: 200px;
-    z-index: 1001;
-    overflow: hidden; /* чтобы скругление применялось ко всему содержимому */
-}
-
-
-.nav-menu {
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-}
-
-.nav-menu li {
-    padding: 10px 20px;
-}
-
-.nav-menu li:hover {
-    background-color: #f0f0f0;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-}
-
-/* Основной контент */
-.main-content {
-    padding: 20px;
-}
-
-/* Контейнер контента */
-.content-section {
-    display: none;
-}
-
-.content-section:first-child {
-    display: block;
-}
-
-.content-box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.logo-corner img {
-    margin-left: 15px;
-}
-
-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #86af81;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+    width: 1px;
+    height: 1px;
     padding: 0;
-    background-color: #f4f4f4;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #222;
-    color: white;
-    padding: 30px;
-    text-align: center;
-  }
-  
-  .logo img {
-    height: 40px;
-    vertical-align: middle;
-  }
-  
-  .book-box {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
-  }
-  
-  .book-box:hover {
-    transform: scale(1.02);
-  }
-  
-  .book-box h2 {
-    margin-top: 0;
-  }
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 
-  @media screen and (max-width: 950px) {
-    .cols.clearfix {
-        background-color: white;
+/* Hide scrollbar for a cleaner look, but keep functionality */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Keyframes for fade-in animation, used by JavaScript */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-/* Стиль для поисковой строки */
-.search-container {
-    display: flex;
-    justify-content: center;
-}
-
-.search-form {
-    display: flex;
-    width: 70%;
-    max-width: 600px;
-}
-
-.search-input {
-    flex: 1;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 25px 0 0 25px;
-    font-size: 20px;
-    outline: none;
-    width: 300px;
-}
-
-.search-button {
-    padding: 0 20px;
-    background-color: #ff6b81;
-    color: white;
-    border: none;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-.search-button:hover {
-    background-color: #ff4757;
-}
-
-.book-container {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 15px;
-    padding: 20px;
-    width: 100%;
-    background: white;
-    scrollbar-width: thin; /* Для красивого скролла */
-  }
-  
-  .book-box {
-    flex: 0 0 auto;
-    width: 200px;          /* Фиксированная ширина */
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  
-  .book-box:hover {
-    transform: scale(1.03);
-  }
-  
-  .book-cover {
-    width: 150px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 6px;
-  }
-
-.book-title {
-    margin: 10px 0 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.book-author {
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.book-price {
-    color: #ff6b81;
-    font-weight: bold;
+/* Class to apply the fade-in animation, toggled by JavaScript */
+.animate-fade-in {
+    animation: fade-in 0.2s ease-out forwards;
 }

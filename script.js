@@ -1,35 +1,42 @@
-// Открытие/закрытие выпадающего меню
-const profileBtn = document.getElementById("profileBtn");
-const profileDropdown = document.getElementById("profileDropdown");
+// JavaScript for profile dropdown functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const profileBtn = document.getElementById('profileBtn');
+    const profileDropdown = document.getElementById('profileDropdown');
 
-profileBtn.addEventListener("click", () => {
-    profileDropdown.style.display = profileDropdown.style.display === "block" ? "none" : "block";
-});
-
-// Закрытие меню при клике вне его
-document.addEventListener("click", (e) => {
-    if (!profileDropdown.contains(e.target) && !profileBtn.contains(e.target)) {
-        profileDropdown.style.display = "none";
+    // Function to toggle dropdown visibility
+    function toggleDropdown() {
+        const isHidden = profileDropdown.hasAttribute('hidden');
+        if (isHidden) {
+            profileDropdown.removeAttribute('hidden');
+            profileDropdown.classList.add('animate-fade-in'); // Add fade-in animation
+            profileDropdown.classList.remove('opacity-0', 'scale-95'); // Show and scale up
+            profileBtn.setAttribute('aria-expanded', 'true');
+        } else {
+            profileDropdown.classList.remove('animate-fade-in'); // Remove fade-in
+            profileDropdown.classList.add('opacity-0', 'scale-95'); // Hide and scale down
+            profileDropdown.addEventListener('transitionend', function handler() {
+                profileDropdown.setAttribute('hidden', '');
+                profileDropdown.removeEventListener('transitionend', handler);
+            }, { once: true }); // Hide completely after animation
+            profileBtn.setAttribute('aria-expanded', 'false');
+        }
     }
-});
 
-// Переключение вкладок
-const navLinks = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll(".content-section");
+    // Event listener for button click
+    profileBtn.addEventListener('click', toggleDropdown);
 
-navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const target = link.getAttribute("data-content");
-
-        sections.forEach(section => {
-            if (section.id === target) {
-                section.style.display = "block";
-            } else {
-                section.style.display = "none";
+    // Close dropdown if clicked outside
+    document.addEventListener('click', (event) => {
+        if (!profileBtn.contains(event.target) && !profileDropdown.contains(event.target)) {
+            if (!profileDropdown.hasAttribute('hidden')) {
+                profileDropdown.classList.remove('animate-fade-in');
+                profileDropdown.classList.add('opacity-0', 'scale-95');
+                profileDropdown.addEventListener('transitionend', function handler() {
+                    profileDropdown.setAttribute('hidden', '');
+                    profileDropdown.removeEventListener('transitionend', handler);
+                }, { once: true });
+                profileBtn.setAttribute('aria-expanded', 'false');
             }
-        });
-
-        profileDropdown.style.display = "none"; // закрыть меню после выбора
+        }
     });
 });
