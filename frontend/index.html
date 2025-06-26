@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+
+  
+    <header class="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 shadow-lg flex flex-col sm:flex-row items-center justify-between sticky top-0 z-50 rounded-b-lg">
+    
+        <a href="#" class="flex items-center space-x-3 mb-4 sm:mb-0 rounded-full p-2 bg-white bg-opacity-20 hover:bg-opacity-30 transition-all duration-300">
+           
+            <img src="https://placehold.co/40x40/ffffff/000000?text=Logo" alt="Логотип Bookshelf" class="w-10 h-10 rounded-full shadow-md">
+            <span class="text-white text-2xl font-bold tracking-tight hidden md:block">Листай</span>
+        </a>
+
+        <div class="flex-grow max-w-xl w-full mx-auto sm:ml-4 sm:mr-auto">
+            <form class="flex items-center bg-white rounded-full shadow-md overflow-hidden">
+                <label for="search-input" class="sr-only">Найти книгу</label>
+                <input type="text" id="search-input" class="flex-grow p-3 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-l-full" placeholder="Найти книгу...">
+                <button type="submit" class="bg-blue-600 text-white px-5 py-3 rounded-r-full hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
+                    <i class="fas fa-search mr-2"></i> Поиск
+                </button>
+            </form>
+        </div>
+
+        <div class="relative ml-0 sm:ml-4 mt-4 sm:mt-0">
+            <button class="profile-btn bg-white text-blue-600 p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400" id="profileBtn" aria-expanded="false" aria-controls="profileDropdown">
+               
+                <img src="https://placehold.co/40x40/eeeeee/333333?text=User" alt="Профиль пользователя" class="w-10 h-10 rounded-full">
+            </button>
+            <nav class="profile-dropdown absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 z-50 opacity-0 scale-95 transform transition-all duration-200 ease-out" id="profileDropdown" hidden> 
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link block px-4 py-2 text-gray-800 hover:bg-blue-100 rounded-md mx-2 my-1 transition-colors duration-200 flex items-center" data-content="home"><i class="fas fa-home mr-3" aria-hidden="true"></i> Главная</a></li>
+                    <li><a href="#profile" class="nav-link block px-4 py-2 text-gray-800 hover:bg-blue-100 rounded-md mx-2 my-1 transition-colors duration-200 flex items-center" data-content="profile"><i class="fas fa-user mr-3" aria-hidden="true"></i> Профиль</a></li>
+                    <li><a href="#settings" class="nav-link block px-4 py-2 text-gray-800 hover:bg-blue-100 rounded-md mx-2 my-1 transition-colors duration-200 flex items-center" data-content="settings"><i class="fas fa-cog mr-3" aria-hidden="true"></i> Настройки</a></li>
+                    <li><a href="#help" class="nav-link block px-4 py-2 text-gray-800 hover:bg-blue-100 rounded-md mx-2 my-1 transition-colors duration-200 flex items-center" data-content="help"><i class="fas fa-question-circle mr-3" aria-hidden="true"></i> Помощь</a></li>
+                    <li><a href="#logout" class="nav-link block px-4 py-2 text-gray-800 hover:bg-blue-100 rounded-md mx-2 my-1 transition-colors duration-200 flex items-center" data-content="logout"><i class="fas fa-sign-out-alt mr-3" aria-hidden="true"></i> Выйти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section id="home" class="content-section bg-white p-6 rounded-xl shadow-lg" aria-labelledby="home-heading"> 
+           
+            <h2 id="home-heading" class="text-3xl font-bold text-gray-800 mb-6 text-center">Популярные в этом месяце</h2>
+            
+            <div class="flex overflow-x-auto space-x-6 pb-4 hide-scrollbar">
+                
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    
+                    <img src="https://books.google.kz/books/publisher/content?id=je-mAAAAQBAJ&hl=ru&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U2lWoq7P8ZzDtA4uOhNimT-fyv8Pg&w=1280" alt="Обложка книги Оно" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Оно</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Стивен Кинг</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://books.google.kz/books/publisher/content?id=fhN1CgAAQBAJ&hl=ru&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U1vY86M6Chgkn5Qj6RqnxoldmQZUQ&w=1280" alt="Обложка книги Девушка в поезде" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Девушка в поезде</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Пола Хокинс</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://s.f.kz/prod/1195/1194133_550.jpg" alt="Обложка книги Три товарища" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Три товарища</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Эрих Мария Ремарк</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://simg.marwin.kz/media/catalog/product/c/o/cover1__w600_39_378.jpg" alt="Обложка книги Убийство в Восточном экспрессе" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Убийство в Восточном экспрессе</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Агата Кристи</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://simg.marwin.kz/media/catalog/product/f/u/fullimage7_40.jpg" alt="Обложка книги Шерлок Холмс" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Шерлок Холмс</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Артур Конан Дойл</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://book24.kz/upload/iblock/20f/20f47c59a47d5a20c335b5e9a15f0005.jpg" alt="Обложка книги Гарри Поттер" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Гарри Поттер</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Дж.К. Роулинг</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://simg.marwin.kz/media/catalog/product/f/u/fullimage_18_123.jpg" alt="Обложка книги 1984" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">1984</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Джордж Оруэлл</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://s.f.kz/prod/2403/2402505_1000.jpg" alt="Обложка книги Мастер и Маргарита" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Мастер и Маргарита</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Михаил Булгаков</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+                <div class="book-box bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0 w-48 flex flex-col items-center text-center group">
+                    <img src="https://simg.marwin.kz/media/catalog/product/c/o/cover1__w600_107_25.jpg" alt="Обложка книги Гордость и предубеждение" class="book-cover w-36 h-auto object-cover rounded-md mb-3 transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="book-title text-lg font-semibold text-gray-900 truncate w-full">Гордость и предубеждение</h3>
+                    <p class="book-author text-sm text-gray-600 mb-2">Джейн Остин</p>
+                    <p class="book-price text-md font-bold text-green-600">Бесплатно</p>
+                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-sm shadow-md">Читать</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8 rounded-t-lg">
+        <p>&copy; 2024 Bookshelf. Все права защищены.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
